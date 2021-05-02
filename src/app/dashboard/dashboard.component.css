@@ -1,0 +1,8 @@
+.checkmark {
+      display: inline-block;
+    transform: rotate(45deg);
+    height: 24px;
+    width: 12px;
+    border-bottom:5px solid #78b13f;
+    border-right: 5px solid #78b13f;
+    }

@@ -1,0 +1,282 @@
+<i class="fas fa-chevron-left" style="font-size: 35px;cursor: pointer;margin-top: 7px;" (click)="routeHome()"></i>
+
+<div class="jumbotron">
+<h2 class="display-4" style="font-size: 39px;">FIND HELP</h2>
+    <hr class="my-4">
+<mat-vertical-stepper [linear]="!isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Fill out your name</ng-template>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Fill out your address</ng-template>
+      <mat-form-field style="min-width: 18rem;">
+        <mat-label>Address</mat-label>
+        <input  matInput formControlName="address" placeholder="Ex. 1 Main St, New York, NY"
+               required>
+
+               
+      </mat-form-field>
+      <div>
+      <mat-form-field>
+        
+       <mat-label>Zip</mat-label>
+        <input matInput formControlName="zip" placeholder="400601"
+               required>
+        </mat-form-field>
+      </div>
+
+       <mat-form-field appearance="fill">
+  <mat-label>State</mat-label>
+ 
+
+  <mat-select  formControlName="state1" required>
+    <mat-option *ngFor="let state of states" [value]="state">
+      {{state}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+  <div>
+      <mat-form-field appearance="fill">
+  <mat-label>City</mat-label>
+ 
+
+  <mat-select  formControlName="cities1" required>
+    <mat-option *ngFor="let city of cities" [value]="city">
+      {{city}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+</div>
+
+
+
+      <!-- <mat-form-field appearance="fill">
+  <mat-label>Toppings</mat-label>
+  <mat-select [formControl]="toppings" multiple>
+    <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+  </mat-select>
+</mat-form-field> -->
+
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+<mat-step [stepControl]="thirdFormGroup">
+    <form [formGroup]="thirdFormGroup">
+      <ng-template matStepLabel>Fill out your Contact</ng-template>
+      <mat-form-field style="min-width: 18rem;">
+        <mat-label>Email</mat-label>
+        <input  matInput formControlName="email" placeholder="xyz@gmail.com"
+               required>
+
+               
+      </mat-form-field>
+      <div>
+      <mat-form-field>
+        
+       <mat-label>Contact</mat-label>
+        <input matInput formControlName="contact" 
+               required>
+        </mat-form-field>
+      </div>
+
+   
+
+
+      <!-- <mat-form-field appearance="fill">
+  <mat-label>Toppings</mat-label>
+  <mat-select [formControl]="toppings" multiple>
+    <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+  </mat-select>
+</mat-form-field> -->
+
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+
+  <mat-step [stepControl]="fourthFormGroup">
+    <form [formGroup]="fourthFormGroup">
+      <ng-template matStepLabel>Select Needs</ng-template>
+       <mat-form-field appearance="fill">
+  <mat-label>Needs</mat-label>
+  <mat-select formControlName="needs1" multiple>
+    <mat-option *ngFor="let need of needs" [value]="need">{{need}}</mat-option>
+  </mat-select>
+</mat-form-field>
+      <div>
+
+ <mat-form-field class="example-full-width">
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description"></textarea>
+  </mat-form-field>
+      </div>
+
+   
+
+
+      <!-- <mat-form-field appearance="fill">
+  <mat-label>Toppings</mat-label>
+  <mat-select [formControl]="toppings" multiple>
+    <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+  </mat-select>
+</mat-form-field> -->
+
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <div>
+      <div class="info">
+  <p><strong>Info!</strong> After Submitting Your Needs. Others can see on dashboard</p>
+          
+            <span>Don't Worry We are with you...</span>
+
+            </div>
+
+                  <button mat-button style="background-color: #673ab7;min-width: 100px;margin-top: 5px;color: white" (click)="sumbittedForHelp()">
+                    <span *ngIf="loading">
+<span  class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+  Loading...
+  </span>
+    <span *ngIf="!loading">Submit</span>
+                  </button>
+
+     <!--  <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button> -->
+    </div>
+  </mat-step>
+</mat-vertical-stepper>
+</div>
+
+<!-- <div class="jumbotron">
+    <h1 class="display-4">POST A NEW REQUEST</h1>
+        <hr class="my-4">
+        <form>
+
+            <div class="form-group row">
+                <label for="example-text-input" class="col-2 col-form-label">Name</label>
+                <div class="col-10">
+                  <input class="form-control" type="text" value="Name" id="example-text-input">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="example-email-input" class="col-2 col-form-label">Email</label>
+                <div class="col-10">
+                  <input class="form-control" type="email" value="bootstrap@example.com" id="example-email-input">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="example-tel-input" class="col-2 col-form-label">Telephone</label>
+                <div class="col-10">
+                  <input class="form-control" type="tel" value="+91 xxxxxxxxxx" id="example-tel-input">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="exampleFormControlSelect1" class="col-2 col-form-label">State</label>
+                <div class="col-10">
+                <select class="form-control" id="state" data-live-search="true">
+                  <option value="Andaman and Nicobar Island">Andaman and Nicobar Island</option>
+                  <option value="Andhra Pradesh">Andhra Pradesh</option>
+                  <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                  <option value="Assam">Assam</option>
+                  <option value="Bihar">Bihar</option>
+                  <option value="Chandigarh">Chandigarh</option>
+                  <option value="Chhattisgarh">Chhattisgarh</option>
+                  <option value="Daman and Diu">Daman and Diu</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Goa">Goa</option>
+                  <option value="Gujarat">Gujarat</option>
+                  <option value="Haryana">Haryana</option>
+                  <option value="Himachal Pradesh">Himachal Pradesh</option>
+                  <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                  <option value="Jharkhand">Jharkhand</option>
+                  <option value="Karnataka">Karnataka</option>
+                  <option value="Kerala">Kerala</option>
+                  <option value="Ladakh">Ladakh</option>
+                  <option value="Lakshadweep">Lakshadweep</option>
+                  <option value="Madhya Pradesh">Madhya Pradesh</option>
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="Manipur">Manipur</option>
+                  <option value="Meghalaya">Meghalaya</option>
+                  <option value="Nagaland">Nagaland</option>
+                  <option value="Mizoram">Mizoram</option>
+                  <option value="Odisha">Odisha</option>
+                  <option value="Puducherry">Puducherry</option>
+                  <option value="Punjab">Punjab</option>
+                  <option value="Rajasthan">Rajasthan</option>
+                  <option value="Sikkim">Sikkim</option>
+                  <option value="Tamil Nadu">Tamil Nadu</option>
+                  <option value="Telangana">Telangana</option>
+                  <option value="Tripura">Tripura</option>
+                  <option value="Uttar Pradesh">Uttar Pradesh</option>
+                  <option value="Uttarakhand">Uttarakhand</option>
+                  <option value="West Bengal">West Bengal</option>
+          
+                </select>
+              </div>
+            </div>
+          <div class="form-group row">
+            <label for="exampleFormControlSelect1" class="col-2 col-form-label">Type</label>
+            <div class="col-10">
+            <select id="state" data-live-search="true" class="custom-select" multiple>
+                >
+              <option value="Oxygen">Oxygen</option>
+              <option value="Plasma">Plasma</option>
+              <option value="Food">Food</option>
+              <option value="Medicine">Medicine</option>
+              <option value="Bed">Bed</option>
+              <option value="Financials">Financials</option>\
+              <option value="Other">Other</option>
+              
+            </select>
+          </div>
+        </div>
+    
+           
+          <div class="form-group">
+            <label for="inputAddress">Address</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+          </div>
+          <div class="form-group">
+            <label for="inputAddress2">Address 2</label>
+            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputCity">City</label>
+              <input type="text" class="form-control" id="inputCity">
+            </div>
+
+            <div class="form-group col-md-2">
+              <label for="inputZip">Zip</label>
+              <input type="text" class="form-control" id="inputZip">
+            </div>
+          </div>
+          
+    
+        <button style="margin-left: 10%; width:20%;" type="submit" class="btn btn-primary">SUBMIT</button>
+      </form>
+      
+    
+    </div> -->

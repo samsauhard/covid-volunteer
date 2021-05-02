@@ -1,0 +1,28 @@
+<i class="fas fa-chevron-left" style="font-size: 35px;cursor: pointer;margin-top: 7px;" (click)="routeHome()"></i>
+
+<div *ngFor="let help of listhelp">
+<mat-card>
+
+	Name : {{help.name}}<br>
+	EmailId : {{help.emailId}}<br>
+	<span>Mobile no. {{help.mobContact}}</span><br>
+	Address: {{help.address}}
+	State: {{help.state}} 
+	<span>
+		Zip : {{help.zip}}
+	</span>
+	<br>
+	<span>Help Needed for :  
+		<span *ngIf="help.oxygenHelp">Oxygen<span style="margin-left: 5px;" class="checkmark"></span></span>
+		<span *ngIf="help.medicineHelp">Medicine<span style="margin-left: 5px;" class="checkmark"></span></span>
+		<span *ngIf="help.foodSupplyHelp">Food Supply<span style="margin-left: 5px;" class="checkmark"></span></span>
+		<span *ngIf="help.financialHelp">Financial<span  style="margin-left: 5px;" class="checkmark"></span></span>
+		<span *ngIf="help.bedHelp">Bed<span style="margin-left: 5px;" class="checkmark"></span></span>
+		<span *ngIf="help.otherHelp">Other<span style="margin-left: 5px;" class="checkmark"></span></span>
+
+	
+	</span>
+
+</mat-card>
+<br>
+</div>
