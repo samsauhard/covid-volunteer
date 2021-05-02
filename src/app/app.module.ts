@@ -16,6 +16,7 @@ import { SeekhelpComponent } from './seekhelp/seekhelp.component';
 import { HomeComponent_ } from './home_sau/home.component';
 import { HeaderComponent } from './header/header.component';
 import {AppService}           from './app.service';
+import { DashboardOfferedHelpComponent } from './dashboard-offered-help/dashboard-offered-help.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {AppService}           from './app.service';
     HomeComponent_,
     HeaderComponent,
     SeekhelpComponent,
-    VolunteerComponent
+    VolunteerComponent,
+    DashboardOfferedHelpComponent
   ],
   imports: [
     BrowserModule,

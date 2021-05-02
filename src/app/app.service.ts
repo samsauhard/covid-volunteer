@@ -29,6 +29,11 @@ export class AppService {
     return this.http.get(this.baseUri + 'getallhelp');
 
   }
+getalloffer(): Observable<any> {
+    return this.http.get(this.baseUri + 'getalloffer');
+
+  }
+  
   
 
 }
