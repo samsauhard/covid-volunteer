@@ -34,10 +34,11 @@
 
   <mat-toolbar style="background: #f5f5f5">
     <mat-toolbar-row class="navbar navbar-expand-lg ">
-      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span style="cursor: pointer;" (click)="routeHome()">COVID Volunteer<sup style="font-style: oblique;">dev-0.0.1</sup></span>
+      
+        <img src="assets/landing_covid.png" width="10%" height="130%"  alt="">
+      
+      <!--<button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>-->
+      <span style="cursor: pointer;" (click)="routeHome()"><sup style="font-style: oblique;">Covid Support</sup></span>
       <span class="example-spacer"></span>
       <div fxShow="true" fxHide.lt-md="true">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -62,7 +63,7 @@
          
       </div>
        <div>
-      <a  class="nav-link" target="_blank" href="https://www.paypal.com/donate?hosted_button_id=KDAXAXF2B6KS6">Donate Us</a> 
+      <a  class="nav-link" target="_blank" href="https://www.paypal.com/donate?hosted_button_id=KDAXAXF2B6KS6">DONATE FOR THE CAUSE</a> 
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
@@ -71,12 +72,15 @@
 
   <mat-sidenav-container fxFlexFill>
     <mat-sidenav #sidenav>
-      <mat-nav-list style="width: 124px;">
+      
+      <mat-nav-list style="width: 100%;">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <!-- <li class="nav-item active">
+          
           <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
         </li> -->
+        
         <li class="nav-item">
           <a class="nav-link" routerLink="/volunteer">Volunteer</a>
         </li>

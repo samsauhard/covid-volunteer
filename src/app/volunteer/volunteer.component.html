@@ -3,7 +3,7 @@
 <div class="jumbotron">
 <h2 class="display-4" style="font-size: 39px;">CREATE HELP</h2>
     <hr class="my-4">
-<mat-vertical-stepper [linear]="isLinear" #stepper>
+<mat-vertical-stepper [linear]="!isLinear" #stepper>
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Fill out your name</ng-template>

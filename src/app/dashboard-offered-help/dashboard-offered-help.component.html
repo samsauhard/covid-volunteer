@@ -1,8 +1,13 @@
-<i class="fas fa-chevron-left" style="font-size: 35px;cursor: pointer;margin-top: 7px;" (click)="routeHome()"></i>
+<i class="fas fa-chevron-left" style="font-size: 35px;cursor: pointer;margin-top: 7px;margin-left:10px;" (click)="routeHome()"></i>
 
+
+<a class="btn btn-light"  mat-stroked-button  style="width:100%;min-width: 160px;margin-top:10px;margin-bottom:10px;color: #007bff " routerLink="/seekhelp">
+	ASK FOR HELP FORM</a>
 
 <!-- <mat-spinner></mat-spinner>
  -->
+<br/>
+<div style="text-align:center;margin-top:10px;margin-bottom:10px;">List of People Helping Right Now</div> 
 <div *ngFor="let help of listhelp">
 <mat-card>
 
@@ -15,7 +20,7 @@
 		Zip : {{help.zip}}
 	</span>
 	<br>
-	<span>Help Needed for :  
+	<span>Providing Help Related to :  
 		<span *ngIf="help.oxygenHelp">Oxygen<span style="margin-left: 5px;" class="checkmark"></span></span>
 		<span *ngIf="help.medicineHelp">Medicine<span style="margin-left: 5px;" class="checkmark"></span></span>
 		<span *ngIf="help.foodSupplyHelp">Food Supply<span style="margin-left: 5px;" class="checkmark"></span></span>
